@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe 'Users', type: :request do
   describe 'GET index' do
-    before(:each) {get users_path}
+    before(:each) { get users_path }
 
     it 'Should be 200' do
       expect(response).to have_http_status(:ok)
@@ -18,7 +20,7 @@ RSpec.describe 'Users', type: :request do
   end
 
   describe 'GET show' do
-    before(:each) {get user_path(10)}
+    before(:each) { get user_path(10) }
 
     it 'Should be 200' do
       expect(response).to have_http_status(:ok)
