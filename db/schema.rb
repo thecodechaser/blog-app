@@ -10,8 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_03_25_075511) do
+ActiveRecord::Schema[7.0].define(version: 2022_03_25_080418) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "User", force: :cascade do |t|
+    t.string "Name"
+    t.string "Photo"
+    t.text "Bio"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "PostsCounter", default: 0, null: false
+  end
 
 end
