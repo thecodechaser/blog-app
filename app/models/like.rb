@@ -1,0 +1,3 @@
+class Like < ApplicationRecord
+
+end
