@@ -9,11 +9,12 @@
 </div>
 
 <% @posts.each do |post| %>
+  <%= link_to user_post_path(@user.id, post.id) do %> 
   <div class="user-recent-post">
   <h2 class="user-post-title">Post : <%= post.title %></h2>
   <p class="user-post-text"><%= post.text %></p>
   <h3>Comments: <%= post.comments_counter%>, Likes: <%= post.like_counter %><h3>
-
+  <% end %>
   <% post.recent_comments.each do |comment|%>
     <h3><%= comment.author.name %><%= comment.text %></h3>
     <% end %>
@@ -24,5 +25,5 @@
   <button class="button">
     Pagination
   </button>
-  
+
 </div>
