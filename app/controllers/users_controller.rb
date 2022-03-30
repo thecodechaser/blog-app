@@ -2,8 +2,7 @@
 
 class UsersController < ApplicationController
   def index;
-  # @users = User.all.order(created_at: :desc)
-  @user = current_user
+  @users = User.all.order(created_at: :desc)
   end
 
   def show; end
