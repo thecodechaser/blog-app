@@ -2,11 +2,11 @@
 <div class="users-container">
 <h1 class="users-heading">All users <%= @users.length%></h1>
 <% @users.each do |user| %>
-<div>
-<img src=<%= user.photo %> alt="user"/>
-<div>
-<h2><%= user.name %></h2>
-<p>Number of posts: <%= user.posts_counter%></p>
+<div class="user-box">
+<img class="user-img" src=<%= user.photo %> alt="user"/>
+<div class="user-info-box">
+<h2 class="user-name"><%= user.name %></h2>
+<p class="user-post-count">Number of posts: <%= user.posts_counter%></p>
 </div>
 </div>
 <% end %>
