@@ -1,1 +1,33 @@
-<h1>Show all posts of a user</h1>
+<div class="posts-container">
+
+<div class="user-box">
+<img class="user-img" src=<%= @user.photo %> alt="user"/>
+<div class="user-info-box">
+<h2 class="user-name"><%= @user.name %></h2>
+<p class="user-post-count">Number of posts: <%= @user.posts_counter%></p>
+</div>
+</div>
+
+<% @posts.each do |post| %>
+  <%= link_to user_post_path(@user.id, post.id), class:"text-dec" do %> 
+  <div>
+  <div class="posts-info">
+  <h2 class="user-post-title">Post : <%= post.title %></h2>
+  <p class="user-post-text"><%= post.text %></p>
+  <h3 class="user-post-counters">Comments: <%= post.comments_counter%>, Likes: <%= post.like_counter %><h3>
+  </div>
+  <% end %>
+
+  <div class="post-comments">
+  <% post.recent_comments.each do |comment|%>
+    <h3><%= comment.author.name %><%= comment.text %></h3>
+    <% end %>
+    </div>
+  </div>
+  <% end%>
+
+  <button class="button">
+    Pagination
+  </button>
+
+</div>
