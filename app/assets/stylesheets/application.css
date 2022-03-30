@@ -45,3 +45,20 @@
   flex-direction: column;
   align-items: center;
 }
+
+/* post-show */
+
+.post-show-c {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.post-inf-box {
+  display: flex;
+  justify-content: space-between;
+}
+
+.user-post-title {
+  font-size: 35px;
+}

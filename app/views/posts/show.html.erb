@@ -1,1 +1,15 @@
-<h1>Show post info</h1>
+<div class="post-show-c">
+
+  <div class="user-recent-post">
+  <div class="post-inf-box"
+  <h2 class="user-post-title">Post : <%= @post.title %> by <%= @user.name %></h2>
+  <h3>Comments: <%= @post.comments_counter%>, Likes: <%= @post.like_counter %><h3>
+  </div>
+  <p class="user-post-text"><%= @post.text %></p>
+
+  <% @comments.each do |comment|%>
+    <h3><%= comment.author.name %><%= comment.text %></h3>
+    <% end %>
+  </div>
+
+</div>
