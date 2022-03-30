@@ -6,7 +6,9 @@
   <h3>Comments: <%= @post.comments_counter%>, Likes: <%= @post.like_counter %><h3>
   </div>
   <p class="user-post-text"><%= @post.text %></p>
+  </div>
 
+  <div class="post-comments">
   <% @comments.each do |comment|%>
     <h3><%= comment.author.name %><%= comment.text %></h3>
     <% end %>
