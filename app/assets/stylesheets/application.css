@@ -118,7 +118,8 @@
   gap: 20px;
 }
 
-.post-title-c, .post-text-c {
+.post-title-c,
+.post-text-c {
   padding: 20px;
   width: 400px;
 }
