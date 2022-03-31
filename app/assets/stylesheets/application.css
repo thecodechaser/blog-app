@@ -126,3 +126,16 @@
 .submit-btn {
   padding: 10px;
 }
+
+/* add-comment */
+
+.add-comment-c {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.comment-text-c {
+  padding: 20px;
+  width: 400px;
+}
