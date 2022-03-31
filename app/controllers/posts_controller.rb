@@ -21,7 +21,7 @@ class PostsController < ApplicationController
     respond_to do |format|
       format.html do
         if @new_post.save
-          redirect_to "/users/#{@new_post.user.id}/posts/", notice: 'Success!'
+          redirect_to "/users/#{@new_post.author.id}/posts/", notice: 'Success!'
         else
           render :new, alert: 'Error occured!'
         end
