@@ -7,7 +7,7 @@
   </div>
   <p class="user-post-text"><%= @post.text %></p>
 
-  <%= form_with url: "/posts/#{@post.id}/likes", scope: :like do |form| %>
+  <%= form_with url: "/users/#{@post.author_id}/posts/#{@post.id}/likes", scope: :like do |form| %>
     <%= form.submit "Like ", class: "post-like-btns"%>
     
   <% end %>
