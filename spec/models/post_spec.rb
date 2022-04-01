@@ -1,11 +1,12 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-
   describe 'Post model' do
     user = User.create(name: 'Ranjeet', bio: 'This is bio')
     subject { Post.new(title: 'post title', text: 'post text', author_id: user) }
-    before { subject.save}
+    before { subject.save }
 
     it 'check the title is not blank' do
       subject.title = nil
@@ -41,5 +42,4 @@ RSpec.describe User, type: :model do
       expect(subject.recent_comments).to eq(subject.comments.last(5))
     end
   end
-
 end
