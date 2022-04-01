@@ -6,6 +6,11 @@
   <h3>Comments: <%= @post.comments_counter%>, Likes: <%= @post.like_counter %><h3>
   </div>
   <p class="user-post-text"><%= @post.text %></p>
+
+  <%= form_with url: "/users/#{@post.author_id}/posts/#{@post.id}/likes", scope: :like do |form| %>
+    <%= form.submit "Like ", class: "post-like-btns"%>
+    
+  <% end %>
   </div>
 
   <div class="post-comments">
@@ -14,4 +19,5 @@
     <% end %>
   </div>
 
+  <%= render partial: "add_comments", local: { post: @post } %>
 </div>
