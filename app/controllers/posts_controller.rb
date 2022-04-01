@@ -23,8 +23,7 @@ class PostsController < ApplicationController
         if @new_post.save
           redirect_to "/users/#{@new_post.author.id}/posts/", flash: { alert: 'Your post is saved' }
         else
-          flash.now[:error] = 'Could not save post'
-          render action: 'new'
+          redirect_to "/users/#{@new_post.author.id}/posts/new", flash: { alert: 'Could not save post' }
         end
       end
     end
