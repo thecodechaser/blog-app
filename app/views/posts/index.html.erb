@@ -14,6 +14,9 @@
   <div class="posts-info">
   <h2 class="user-post-title">Post : <%= post.title %></h2>
   <p class="user-post-text"><%= post.text %></p>
+  <%if can? :destroy, post %>
+              <%= button_to "Delete Post", user_post_path(@user.id, post.id), :method => :delete, class: "del" %>
+        <%end%>
   <h3 class="user-post-counters">Comments: <%= post.comments_counter%>, Likes: <%= post.like_counter %><h3>
   </div>
   <% end %>
