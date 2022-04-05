@@ -2,6 +2,9 @@
 
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+  
+  #prevent users to perfrom action without authentication
+  before_action :authenticate_user!
 
   before_action :update_allowed_parameters, if: :devise_controller?
 
