@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe 'user#Show', type: :feature do
@@ -19,11 +21,11 @@ RSpec.describe 'user#Show', type: :feature do
       @post1 = Post.create(title: 'First Post', text: 'This is my first post', comments_counter: 0, like_counter: 0,
                            author: @user1)
       @post2 = Post.create(title: 'Second Post', text: 'This is my second post', comments_counter: 0, like_counter: 0,
-      author: @user1)
+                           author: @user1)
       @post3 = Post.create(title: 'Third Post', text: 'This is my third post', comments_counter: 0, like_counter: 0,
-      author: @user1)
+                           author: @user1)
       @post4 = Post.create(title: 'Fourth Post', text: 'This is my fourth post', comments_counter: 0, like_counter: 0,
-      author: @user1)
+                           author: @user1)
       visit user_path(@user1.id)
     end
     it "show user's profile picture" do

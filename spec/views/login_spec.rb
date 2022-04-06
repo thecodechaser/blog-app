@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 # rubocop:disable Metrics/BlockLength
 RSpec.feature 'Logins', type: :feature do
@@ -36,7 +38,7 @@ RSpec.feature 'Logins', type: :feature do
         fill_in 'Password', with: @user.password
       end
       click_button 'Log in'
-      expect(page).to have_current_path("/")
+      expect(page).to have_current_path('/')
     end
   end
   # rubocop:enable Metrics/BlockLength
