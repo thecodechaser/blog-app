@@ -16,6 +16,9 @@
   <div class="post-comments">
   <% @comments.each do |comment|%>
     <h3><%= comment.author.name %><%= comment.text %></h3>
+    <% if can? :destroy, comment %>
+    <%= button_to 'Delete Comment', user_post_comment_path(@post.author_id, @post.id, comment.id), method: :delete, params: { comment_id: comment.id}, class: "del" %>
+  <%end%>
     <% end %>
   </div>
 

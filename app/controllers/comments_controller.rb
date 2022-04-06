@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class CommentsController < ApplicationController
+  # load_and_authorize_resource
+
   def new
     @comment = Comment.new
   end
@@ -19,6 +21,16 @@ class CommentsController < ApplicationController
       flash.now[:error] = 'Could not save comment'
       render action: 'new'
     end
+  end
+
+  def destroy
+    @comment = Comment.find(params[:comment_id])
+    post = Post.find_by(id: @comment.post_id)
+    post.comments_counter -= 1
+    @comment.destroy!
+    post.save
+    flash[:success] = 'You have deleted this comment!'
+    redirect_to user_post_path(post.author_id, post.id)
   end
 
   private

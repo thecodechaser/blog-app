@@ -6,8 +6,8 @@ Rails.application.routes.draw do
   # get 'users/745/posts/3', to: 'posts#show'
 
   resources :users, only: [:show, :index] do
-    resources :posts, only: [:show, :index, :create, :new] do
-      resources :comments, only: [:create, :new]
+    resources :posts, only: [:show, :index, :create, :new, :destroy] do
+      resources :comments, only: [:create, :new, :destroy]
       resources :likes, only: [:create]
       end
    end
