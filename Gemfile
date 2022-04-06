@@ -65,10 +65,11 @@ gem 'cancancan', '~> 3.3'
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri mingw x64_mingw]
-end
 
-group :development, :test do
-  ## rspec tests
+  # Database clearner
+  gem 'database_cleaner'
+
+  # rspec tests
   gem 'rspec-rails', '~> 5.0.0'
 end
 
