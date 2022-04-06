@@ -48,7 +48,6 @@ RSpec.describe 'posts#index', type: :feature do
 
     it 'shows posts title' do
       expect(page).to have_content('First Post')
-      visit user_session_path
     end
 
     it 'can see some of the post detail' do
