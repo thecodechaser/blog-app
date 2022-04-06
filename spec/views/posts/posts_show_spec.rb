@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe 'Post show', type: :feature do
-  describe 'User' do
+  describe 'Post' do
     before(:each) do
-      @user1 = User.create(name: 'Amy', photo: 'Tom.png', bio: 'bio', posts_counter: 0, email: 'amy@gmail.com',
+      @user1 = User.create(name: 'Ranjeet', photo: 'Tom.png', bio: 'bio', posts_counter: 0, email: 'amy@gmail.com',
                            password: 'password')
       @user2 = User.create(name: 'Amy', bio: 'bio',
                            photo: 'Tom.png',
@@ -39,7 +39,7 @@ RSpec.describe 'Post show', type: :feature do
     end
 
     it 'shows the person who wrote the post' do
-      expect(page).to have_content('Amy')
+      expect(page).to have_content('Ranjeet')
     end
 
     it 'shows number of comments' do

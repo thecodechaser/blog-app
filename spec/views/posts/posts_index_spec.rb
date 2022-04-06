@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe 'posts#index', type: :feature do
-  describe 'User' do
+  describe 'Post' do
     before(:each) do
-      @user1 = User.create(name: 'Amy', photo: 'Tom.png', bio: 'bio', posts_counter: 0, email: 'amy@gmail.com',
+      @user1 = User.create(name: 'Ranjeet', photo: 'Tom.png', bio: 'bio', posts_counter: 0, email: 'amy@gmail.com',
                            password: 'password')
       visit root_path
       fill_in 'Email', with: 'amy@gmail.com'
@@ -33,7 +33,7 @@ RSpec.describe 'posts#index', type: :feature do
     end
 
     it 'shows the users username' do
-      expect(page).to have_content('Amy')
+      expect(page).to have_content('Ranjeet')
     end
 
     it 'shows number of posts of user has written' do
