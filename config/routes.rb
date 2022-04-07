@@ -14,7 +14,8 @@ Rails.application.routes.draw do
       post 'comments/create' => 'comments#create'
     end
   end
- 
+
+
   # routes for application
 
   resources :users, only: [:show, :index] do
