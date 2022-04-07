@@ -3,7 +3,6 @@
 module Api
   module V1
     class UsersController < ApplicationController
-
       def login
         valid = User.find_by(email: params[:email]).valid_password?(params[:password])
         if valid
@@ -20,7 +19,7 @@ module Api
         end
       end
 
-      def register 
+      def register
         new_user = User.new(name: params[:name], email: params[:email], password: params[:password])
         if new_user.save
           render json: { success: true, message: 'User created', data: { user: new_user } }, status: :created
@@ -28,7 +27,6 @@ module Api
           render json: { success: false, errors: new_user.errors }, status: :unprocessable_entity
         end
       end
-
     end
   end
 end

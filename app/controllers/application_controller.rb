@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   # without api calls
   # protect_from_forgery with: :exception
 
-  #for api calls
+  # for api calls
   protect_from_forgery prepend: true
 
   # prevent users to perfrom action without authentication
