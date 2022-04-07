@@ -1,9 +1,21 @@
 Rails.application.routes.draw do
   devise_for :users
-  root 'users#index'
   # get 'users/745', to: 'users#show'
   # get 'users/745/posts', to: 'posts#index'
   # get 'users/745/posts/3', to: 'posts#show'
+
+  # api routes
+
+  namespace :api , defaults: { format: :json } do
+    namespace :v1 do
+      post 'users/sign_in' => 'users#login'
+      get 'posts' => 'posts#index'
+      get 'comments' => 'comments#index'
+      post 'comments/create' => 'comments#create'
+    end
+  end
+ 
+  # routes for application
 
   resources :users, only: [:show, :index] do
     resources :posts, only: [:show, :index, :create, :new, :destroy] do
@@ -11,5 +23,7 @@ Rails.application.routes.draw do
       resources :likes, only: [:create]
       end
    end
+
+   root 'users#index'
 
 end
