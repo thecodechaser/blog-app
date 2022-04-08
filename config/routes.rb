@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  mount Rswag::Ui::Engine => '/api-docs'
+  mount Rswag::Api::Engine => '/api-docs'
   devise_for :users
   # get 'users/745', to: 'users#show'
   # get 'users/745/posts', to: 'posts#index'
