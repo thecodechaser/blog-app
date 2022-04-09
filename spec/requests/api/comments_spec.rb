@@ -34,7 +34,8 @@ RSpec.describe 'api/v1/comments', type: :request do
       parameter name: :comment, in: :body, schema: {
         type: :object,
         properties: {
-          text: { type: :string }
+          text: { type: :string },
+          post_id: { type: :number }
         },
         required: ['text']
       }
