@@ -50,7 +50,7 @@ Start server with:
 rails server
 ```
 
-Open http://localhost:3000/ in your browser.
+Visit http://localhost:3000/ in your browser.
 
 ### Run tests
 
@@ -77,6 +77,15 @@ run the test with:
 ```
 rspec spec
 ```
+
+### Open API documentation
+
+```
+rails server
+```
+
+Visit http://localhost:3000/api-docs in your browser.
+
 
 ## Visit And Open Files
 
