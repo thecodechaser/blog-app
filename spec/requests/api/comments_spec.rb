@@ -6,6 +6,7 @@ RSpec.describe 'api/v1/comments', type: :request do
     parameter name: 'X-Token', :in => :header, :type => :string
 
     get('list comments') do
+      tags 'Comments'
       response(200, 'successful') do
         let(:'X-Token') { '123' }
 
@@ -19,6 +20,12 @@ RSpec.describe 'api/v1/comments', type: :request do
         run_test!
       end
     end
+
+  end
+
+  path '/api/v1/comments/create' do
+    # You'll want to customize the parameter types...
+    parameter name: 'X-Token', :in => :header, :type => :string
 
     post 'Create a comment' do
       tags 'Comments'
@@ -41,6 +48,7 @@ RSpec.describe 'api/v1/comments', type: :request do
         run_test!
       end
     end
-    
+
   end
+    
 end

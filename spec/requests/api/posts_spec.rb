@@ -6,6 +6,7 @@ RSpec.describe 'api/v1/posts', type: :request do
     parameter name: 'X-Token', :in => :header, :type => :string
 
     get('list posts') do
+      tags 'posts'
       response(200, 'successful') do
         let(:'X-Token') { '123' }
 
@@ -19,6 +20,11 @@ RSpec.describe 'api/v1/posts', type: :request do
         run_test!
       end
     end
+  end
+
+  path '/api/v1/posts/create' do
+    # You'll want to customize the parameter types...
+    parameter name: 'X-Token', :in => :header, :type => :string
 
     post 'Create a post' do
       tags 'posts'
@@ -42,6 +48,6 @@ RSpec.describe 'api/v1/posts', type: :request do
         run_test!
       end
     end
-    
   end
+  
 end
