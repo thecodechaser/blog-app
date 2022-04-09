@@ -1,11 +1,11 @@
 require 'swagger_helper'
 
-RSpec.describe 'api/v1/comments', type: :request do
-  path '/api/v1/comments' do
+RSpec.describe 'api/v1/posts', type: :request do
+  path '/api/v1/posts' do
     # You'll want to customize the parameter types...
     parameter name: 'X-Token', :in => :header, :type => :string
 
-    get('list comments') do
+    get('list posts') do
       response(200, 'successful') do
         let(:'X-Token') { '123' }
 
@@ -20,24 +20,25 @@ RSpec.describe 'api/v1/comments', type: :request do
       end
     end
 
-    post 'Create a comment' do
-      tags 'Comments'
+    post 'Create a post' do
+      tags 'posts'
       consumes 'application/json'
-      parameter name: :comment, in: :body, schema: {
+      parameter name: :post, in: :body, schema: {
         type: :object,
         properties: {
+          title: { type: :string },
           text: { type: :string }
         },
-        required: ['text']
+        required: ['title','text']
       }
 
-      response '201', 'comment created' do
-        let(:comment) { { text: 'foo' } }
+      response '201', 'post created' do
+        let(:post) { { title: 'foo', text: 'bar' } }
         run_test!
       end
 
       response '422', 'invalid request' do
-        let(:comment) { { text: 'foo' } }
+        let(:post) { { title: 'foo', text: 'bar' } }
         run_test!
       end
     end

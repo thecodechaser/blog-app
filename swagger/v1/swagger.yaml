@@ -4,14 +4,12 @@ info:
   title: API V1
   version: v1
 paths:
-  "/api/v1/posts/{post_id}/comments":
+  "/api/v1/comments":
     parameters:
-    - name: post_id
-      in: path
-      description: post_id
-      required: true
+    - name: X-Token
+      in: header
       schema:
-        type: integer
+        type: string
     get:
       summary: list comments
       responses:
@@ -36,6 +34,40 @@ paths:
                 text:
                   type: string
               required:
+              - text
+  "/api/v1/posts":
+    parameters:
+    - name: X-Token
+      in: header
+      schema:
+        type: string
+    get:
+      summary: list posts
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: Create a post
+      tags:
+      - posts
+      parameters: []
+      responses:
+        '201':
+          description: post created
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                text:
+                  type: string
+              required:
+              - title
               - text
 servers:
 - url: https://{defaultHost}
