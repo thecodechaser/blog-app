@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  mount Rswag::Ui::Engine => '/api-docs'
+  mount Rswag::Api::Engine => '/api-docs'
   devise_for :users
   # get 'users/745', to: 'users#show'
   # get 'users/745/posts', to: 'posts#index'
@@ -11,6 +13,7 @@ Rails.application.routes.draw do
       post 'users/sign_up' => 'users#register'
       post 'users/sign_in' => 'users#login'
       get 'posts' => 'posts#index'
+      post 'posts/create' => 'posts#create'
       get 'comments' => 'comments#index'
       post 'comments/create' => 'comments#create'
     end

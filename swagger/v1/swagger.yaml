@@ -1,0 +1,143 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/api/v1/comments":
+    parameters:
+    - name: X-Token
+      in: header
+      schema:
+        type: string
+    get:
+      summary: list comments
+      tags:
+      - Comments
+      responses:
+        '200':
+          description: successful
+  "/api/v1/comments/create":
+    parameters:
+    - name: X-Token
+      in: header
+      schema:
+        type: string
+    post:
+      summary: Create a comment
+      tags:
+      - Comments
+      parameters: []
+      responses:
+        '201':
+          description: comment created
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                text:
+                  type: string
+              required:
+              - text
+  "/api/v1/posts":
+    parameters:
+    - name: X-Token
+      in: header
+      schema:
+        type: string
+    get:
+      summary: list posts
+      tags:
+      - posts
+      responses:
+        '200':
+          description: successful
+  "/api/v1/posts/create":
+    parameters:
+    - name: X-Token
+      in: header
+      schema:
+        type: string
+    post:
+      summary: Create a post
+      tags:
+      - posts
+      parameters: []
+      responses:
+        '201':
+          description: post created
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                text:
+                  type: string
+              required:
+              - title
+              - text
+  "/api/v1/users/sign_up":
+    post:
+      summary: Sign up
+      tags:
+      - users
+      parameters: []
+      responses:
+        '201':
+          description: Sign up successfull
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                email:
+                  type: string
+                password:
+                  type: string
+              required:
+              - name
+              - email
+              - password
+  "/api/v1/users/sign_in":
+    post:
+      summary: Sign in
+      tags:
+      - users
+      parameters: []
+      responses:
+        '201':
+          description: Sign in successfull
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
+              required:
+              - email
+              - password
+servers:
+- url: https://{defaultHost}
+  variables:
+    defaultHost:
+      default: www.example.com
