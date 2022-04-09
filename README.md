@@ -4,11 +4,16 @@
 
 > The Blog app is a classic example of a blog website. It's a functional website that shows the list of posts and empower readers to interact with them by adding comments and liking post.
 
+## Preview
+
+Coming soon!
 
 ## Built With
 
 - Major languages (Ruby)
 - Framworks (Ruby on Rails)
+- Testing libraries(Rspec)
+
 
 ## Getting Started
 

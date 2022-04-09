@@ -41,6 +41,8 @@ paths:
               properties:
                 text:
                   type: string
+                post_id:
+                  type: number
               required:
               - text
   "/api/v1/posts":
