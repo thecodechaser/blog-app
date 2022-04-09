@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 require 'swagger_helper'
 
 RSpec.describe 'api/v1/posts', type: :request do
   path '/api/v1/posts' do
     # You'll want to customize the parameter types...
-    parameter name: 'X-Token', :in => :header, :type => :string
+    parameter name: 'X-Token', in: :header, type: :string
 
     get('list posts') do
       tags 'posts'
@@ -24,7 +26,7 @@ RSpec.describe 'api/v1/posts', type: :request do
 
   path '/api/v1/posts/create' do
     # You'll want to customize the parameter types...
-    parameter name: 'X-Token', :in => :header, :type => :string
+    parameter name: 'X-Token', in: :header, type: :string
 
     post 'Create a post' do
       tags 'posts'
@@ -35,7 +37,7 @@ RSpec.describe 'api/v1/posts', type: :request do
           title: { type: :string },
           text: { type: :string }
         },
-        required: ['title','text']
+        required: %w[title text]
       }
 
       response '201', 'post created' do
@@ -49,5 +51,4 @@ RSpec.describe 'api/v1/posts', type: :request do
       end
     end
   end
-  
 end

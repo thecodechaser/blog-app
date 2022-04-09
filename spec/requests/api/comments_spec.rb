@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 require 'swagger_helper'
 
 RSpec.describe 'api/v1/comments', type: :request do
   path '/api/v1/comments' do
     # You'll want to customize the parameter types...
-    parameter name: 'X-Token', :in => :header, :type => :string
+    parameter name: 'X-Token', in: :header, type: :string
 
     get('list comments') do
       tags 'Comments'
@@ -20,12 +22,11 @@ RSpec.describe 'api/v1/comments', type: :request do
         run_test!
       end
     end
-
   end
 
   path '/api/v1/comments/create' do
     # You'll want to customize the parameter types...
-    parameter name: 'X-Token', :in => :header, :type => :string
+    parameter name: 'X-Token', in: :header, type: :string
 
     post 'Create a comment' do
       tags 'Comments'
@@ -48,7 +49,5 @@ RSpec.describe 'api/v1/comments', type: :request do
         run_test!
       end
     end
-
   end
-    
 end

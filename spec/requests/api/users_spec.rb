@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'swagger_helper'
 
 RSpec.describe 'api//v1/users', type: :request do
@@ -14,7 +16,7 @@ RSpec.describe 'api//v1/users', type: :request do
           email: { type: :string },
           password: { type: :string }
         },
-        required: ['name', 'email', 'password']
+        required: %w[name email password]
       }
 
       response '201', 'Sign up successfull' do
@@ -41,7 +43,7 @@ RSpec.describe 'api//v1/users', type: :request do
           email: { type: :string },
           password: { type: :string }
         },
-        required: ['email','password']
+        required: %w[email password]
       }
 
       response '201', 'Sign in successfull' do
@@ -54,6 +56,5 @@ RSpec.describe 'api//v1/users', type: :request do
         run_test!
       end
     end
-  
   end
 end
