@@ -7,9 +7,9 @@ module Api
         if request.headers['X-AUTH-TOKEN']
           @user = User.find_by_api_token(request.headers['X-AUTH-TOKEN'])
           if @user
-          @comments = Comment.where(author_id: @user.id)
-          render json: { success: true, message: 'Loaded all comments', data: { comments: @comments } }, status: :ok
-          else 
+            @comments = Comment.where(author_id: @user.id)
+            render json: { success: true, message: 'Loaded all comments', data: { comments: @comments } }, status: :ok
+          else
             render json: { success: false, errors: 'Wrong authentication token' }, status: :unprocessable_entity
           end
         else
@@ -22,17 +22,18 @@ module Api
       def create
         if request.headers['X-AUTH-TOKEN']
           @user = User.find_by_api_token(request.headers['X-AUTH-TOKEN'])
-         if @user
-          new_comment = @user.comments.new(text: params[:text])
-          new_comment.post_id = params[:post_id].to_i
-          if new_comment.save
-            render json: { success: true, message: 'Comment created', data: { comment: new_comment } }, status: :created
+          if @user
+            new_comment = @user.comments.new(text: params[:text])
+            new_comment.post_id = params[:post_id].to_i
+            if new_comment.save
+              render json: { success: true, message: 'Comment created', data: { comment: new_comment } },
+                     status: :created
+            else
+              render json: { success: false, errors: new_comment.errors }, status: :unprocessable_entity
+            end
           else
-            render json: { success: false, errors: new_comment.errors }, status: :unprocessable_entity
+            render json: { success: false, errors: 'Wrong authentication token' }, status: :unprocessable_entity
           end
-        else 
-          render json: { success: false, errors: 'Wrong authentication token' }, status: :unprocessable_entity
-        end
         else
           respond_to do |format|
             format.json { render json: 'please sign in or add the token', status: :ok }
