@@ -6,7 +6,7 @@ info:
 paths:
   "/api/v1/comments":
     parameters:
-    - name: X-Token
+    - name: X-AUTH-TOKEN
       in: header
       schema:
         type: string
@@ -21,7 +21,7 @@ paths:
           description: Invalid request
   "/api/v1/comments/create":
     parameters:
-    - name: X-Token
+    - name: X-AUTH-TOKEN
       in: header
       schema:
         type: string
@@ -47,9 +47,10 @@ paths:
                   type: number
               required:
               - text
+              - post_id
   "/api/v1/posts":
     parameters:
-    - name: X-Token
+    - name: X-AUTH-TOKEN
       in: header
       schema:
         type: string
@@ -64,7 +65,7 @@ paths:
           description: Invalid request
   "/api/v1/posts/create":
     parameters:
-    - name: X-Token
+    - name: X-AUTH-TOKEN
       in: header
       schema:
         type: string
