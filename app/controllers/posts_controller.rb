@@ -20,10 +20,10 @@ class PostsController < ApplicationController
 
   def create
     @new_post = current_user.posts.new(post_params)
-        if @new_post.save
-          redirect_to "/users/#{@new_post.author.id}/posts/", flash: { alert: 'Your post is saved' }
-        else
-          redirect_to "/users/#{@new_post.author.id}/posts/new", flash: { alert: 'Could not save post' }
+    if @new_post.save
+      redirect_to "/users/#{@new_post.author.id}/posts/", flash: { alert: 'Your post is saved' }
+    else
+      redirect_to "/users/#{@new_post.author.id}/posts/new", flash: { alert: 'Could not save post' }
     end
   end
 

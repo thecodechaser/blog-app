@@ -41,7 +41,7 @@ RSpec.describe 'api/v1/comments', type: :request do
 
       response '201', 'comment created' do
         let(:'X-AUTH-TOKEN') { '123' }
-        let(:comment) { { text: 'foo', post_id: 0} }
+        let(:comment) { { text: 'foo', post_id: 0 } }
         run_test!
       end
 
