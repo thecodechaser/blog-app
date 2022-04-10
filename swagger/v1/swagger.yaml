@@ -18,7 +18,7 @@ paths:
         '200':
           description: successful
         '422':
-          description: successful
+          description: Invalid request
   "/api/v1/comments/create":
     parameters:
     - name: X-Token
@@ -60,6 +60,8 @@ paths:
       responses:
         '200':
           description: successful
+        '422':
+          description: Invalid request
   "/api/v1/posts/create":
     parameters:
     - name: X-Token
