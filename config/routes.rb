@@ -24,7 +24,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show, :index] do
     resources :posts, only: [:show, :index, :create, :new, :destroy] do
-      resources :comments, only: [:create, :new, :destroy]
+      resources :comments, only: [:create, :destroy]
       resources :likes, only: [:create]
       end
    end

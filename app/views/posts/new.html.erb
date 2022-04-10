@@ -1,7 +1,7 @@
 <div class="create-post-c">
 <h2>Create a post</h2>
 
-<%= form_with model: @post, url: user_posts_path, scope: :post, html: {class: "post-form-c"} do |form| %>  
+<%= form_with url: user_posts_path, scope: :post, html: {class: "post-form-c"} do |form| %>  
       <%= form.text_field :title, placeholder: "Title", required: true, class: "post-title-c" %>
       <%= form.text_area :text, placeholder: "Type here...", rows: 20, required: true,  class: "post-text-c" %>
   <%= form.submit "Post", class: "submit-btn" %>

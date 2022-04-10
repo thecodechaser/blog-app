@@ -3,10 +3,6 @@
 class CommentsController < ApplicationController
   # load_and_authorize_resource
 
-  def new
-    @comment = Comment.new
-  end
-
   def create
     @post = Post.find(params[:post_id])
     @new_comment = current_user.comments.new(
@@ -14,7 +10,6 @@ class CommentsController < ApplicationController
       author_id: current_user.id,
       post_id: @post.id
     )
-    @new_comment.post_id = @post.id
     if @new_comment.save
       redirect_to "/users/#{@post.author_id}/posts/#{@post.id}", flash: { alert: 'Your comment is saved' }
     else
