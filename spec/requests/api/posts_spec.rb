@@ -21,6 +21,21 @@ RSpec.describe 'api/v1/posts', type: :request do
         end
         run_test!
       end
+
+      get('list posts') do
+        tags 'posts'
+        response(422, 'Invalid request') do
+          let(:'X-Token') { '123' }
+  
+          after do |example|
+            example.metadata[:response][:content] = {
+              'application/json' => {
+                example: JSON.parse(response.body, symbolize_names: true)
+              }
+            }
+          end
+          run_test!
+        end
     end
   end
 

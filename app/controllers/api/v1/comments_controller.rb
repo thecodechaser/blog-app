@@ -22,6 +22,7 @@ module Api
       def create
         if request.headers['X-AUTH-TOKEN']
           @user = User.find_by_api_token(request.headers['X-AUTH-TOKEN'])
+         if @user
           new_comment = @user.comments.new(text: params[:text])
           new_comment.post_id = params[:post_id].to_i
           if new_comment.save
@@ -29,6 +30,9 @@ module Api
           else
             render json: { success: false, errors: new_comment.errors }, status: :unprocessable_entity
           end
+        else 
+          render json: { success: false, errors: 'Wrong authentication token' }, status: :unprocessable_entity
+        end
         else
           respond_to do |format|
             format.json { render json: 'please sign in or add the token', status: :ok }
